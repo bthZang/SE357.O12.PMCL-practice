@@ -1,0 +1,19 @@
+@startuml "Customer Service System"
+
+left to right direction
+actor "Customer Service Staff" as S
+
+package "Customer Service System" {
+    (5. View customer) as (UC-5)
+    (6. Contact customer) as (UC-6)
+    (7. View customer request) as (UC-7)
+    (8. Edit customer status) as (UC-8)
+
+    S --> (UC-5)
+    S --> (UC-7)
+
+    (UC-5) <.. (UC-8) : <<extend>>
+    (UC-5) <.. (UC-6) : <<extend>>
+}
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml "Account Management System"
+
+left to right direction
+actor Staff as S
+
+package "Account Management System" {
+    (1. Authenticate) as (UC-1)
+    (2. Change password) as (UC-2)
+    (3. Reset password) as (UC-3)
+    (4. Send mass email) as (UC-4)
+
+    S --> (UC-1)
+    S --> (UC-2)
+    S --> (UC-3)
+    S --> (UC-4)
+
+    (UC-3) ..> (UC-2) : <<include>>
+}
+
+@enduml

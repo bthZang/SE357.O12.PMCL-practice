@@ -1,0 +1,21 @@
+@startuml "Departmend Management System"
+
+left to right direction
+actor "Admin" as S
+
+package "Departmend Management System" {
+    (27. Create department) as (UC-27)
+    (28. Edit department profile) as (UC-28)
+    (29. Delete department) as (UC-29)
+    (30. View department) as (UC-30)
+    (31. View department's change history) as (UC-31)
+
+    S --> (UC-27)
+    S --> (UC-28)
+    S --> (UC-30)
+
+    (UC-28) <.. (UC-29) : <<extend>>
+    (UC-30) <.. (UC-31) : <<extend>>
+}
+
+@enduml
