@@ -1,0 +1,23 @@
+@startuml "Recruitment Management System"
+
+left to right direction
+actor "HR Staff" as S
+
+package "Recruitment Management System" {
+    (21. View applicant) as (UC-21)
+    (22. Make interview appointment) as (UC-22)
+    (23. View interview result) as (UC-23)
+    (24. Reject applicant) as (UC-24)
+    (25. Create training lists) as (UC-25)
+    (26. Send interview result to applicant) as (UC-26)
+
+    S --> (UC-21)
+    S --> (UC-25)
+
+    (UC-21) <.. (UC-22) : <<extend>>
+    (UC-21) <.. (UC-23) : <<extend>>
+    (UC-21) <.. (UC-24) : <<extend>>
+    (UC-23) <.. (UC-26) : <<extend>>
+}
+
+@enduml

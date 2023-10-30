@@ -1,0 +1,21 @@
+@startuml "Report System"
+
+left to right direction
+actor Staff as S
+
+package "Report System" {
+    (9. View request) as (UC-9)
+    (10. Reject report request) as (UC-10)
+    (11. Request report) as (UC-11)
+    (12. Cancel report request) as (UC-12)
+    (13. Create report) as (UC-13)
+
+    S --> (UC-9)
+    S --> (UC-11)
+    S --> (UC-13)
+
+    (UC-9) <.. (UC-10) : <<extend>>
+    (UC-11) <.. (UC-12) : <<extend>>
+}
+
+@enduml

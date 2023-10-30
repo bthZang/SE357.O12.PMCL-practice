@@ -1,0 +1,31 @@
+@startuml "Overall"
+
+left to right direction
+actor "Staff" as S
+actor "HR Staff" as H
+actor "Customer Service Staff" as C
+actor "Admin" as A
+
+S <|-- H
+S <|-- C
+H <|-- A
+C <|-- A
+
+(Manage Report System) as (RS)
+(Manage Account Management System) as (AMS)
+(Manage Customer Service System) as (CSS)
+(Manage Human Resource System) as (HRS)
+(Manage Recruitment Management System) as (RMS)
+(Manage Department Management System) as (DMS)
+
+S --> RS
+S --> AMS
+
+C --> CSS
+H --> HRS
+H --> RMS
+
+A --> DMS
+A --> (32. Edit staff permission)
+
+@enduml

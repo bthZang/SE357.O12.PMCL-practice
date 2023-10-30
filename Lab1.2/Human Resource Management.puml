@@ -1,0 +1,26 @@
+@startuml "Human Resource Management"
+
+left to right direction
+actor "HR Staff" as S
+
+package "Human Resource Management" {
+    (14. Change staff profile) as (UC-14)
+    (15. View timekeeping list) as (UC-15)
+    (16. Note in timekeeping list) as (UC-16)
+    (17. Add timekeeping list) as (UC-17)
+    (18. Add staff) as (UC-18)
+    (19. View staff) as (UC-19)
+    (20. Terminate the labor contract with staff) as (UC-20)
+
+    S --> (UC-15)
+    S --> (UC-17)
+    S --> (UC-18)
+    S --> (UC-19)
+
+    (UC-15) <.. (UC-16) : <<extend>>
+    (UC-17) <.. (UC-16) : <<extend>>
+    (UC-19) <.. (UC-14) : <<extend>>
+    (UC-19) <.. (UC-20) : <<extend>>
+}
+
+@enduml
