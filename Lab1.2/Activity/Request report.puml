@@ -1,0 +1,30 @@
+@startuml "Authenticate"
+|Sender|
+start
+:Request report;
+if (The receiver exists?) then (yes)
+:Send request to receiver;
+if (The sender want to cancel the request?) then (yes)
+:Remove to request;
+:Notify to receiver;
+else (no)
+endif
+|Receiver|
+:Receive request;
+if (The receiver agree to do the report?) then (yes)
+else (no)
+:Request the sender to change the request;
+|Sender|
+:Change request;
+endif
+|Receiver|
+:Prepare report;
+:Send report to sender;
+|Sender|
+:Approve the report;
+else (no)
+|Sender|
+end
+endif
+stop
+@enduml
