@@ -1,4 +1,4 @@
-@startuml "Make interview appointment"
+@startuml "View interview result"
 autonumber
 actor "HR Staff" as Staff
 boundary "Recruitment Management System Interface" as RMSI

@@ -1,4 +1,4 @@
-@startuml "Make interview appointment"
+@startuml "Send interview result to applicant"
 autonumber
 actor "HR Staff" as Staff
 actor "Applicant" as Applicant

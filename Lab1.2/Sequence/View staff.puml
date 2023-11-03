@@ -1,4 +1,4 @@
-@startuml "Make interview appointment"
+@startuml "View staff"
 autonumber
 actor "HR Staff" as Staff
 boundary "Human Resource Management Interface" as HRMI

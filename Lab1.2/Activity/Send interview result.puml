@@ -1,0 +1,17 @@
+@startuml "Send interview result"
+start
+:View applicant list;
+if (Staff has permission to view applicant) then (yes)
+:Display applicant list;
+if (Staff has permission to view interview result) then (yes)
+:Display applicant result;
+:Select applicants to send result;
+:Send result to applicant;
+else (no)
+end
+endif
+else (no)
+end
+endif
+stop
+@enduml

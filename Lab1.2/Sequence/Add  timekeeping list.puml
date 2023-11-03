@@ -1,4 +1,4 @@
-@startuml "Make interview appointment"
+@startuml "Add timekeeping list"
 autonumber
 actor "HR Staff" as Staff
 actor "Staff" as SStaff
