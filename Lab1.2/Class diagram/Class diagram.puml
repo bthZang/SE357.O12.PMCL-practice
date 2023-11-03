@@ -1,0 +1,71 @@
+@startuml "Class diagram"
+class Staff {
+    id: string
+    name: string
+    phone: string
+    email: string
+    role: string
+
+    void requestReport()
+    void cancelRequestReport()
+    void createReport()
+    void viewReport()
+}
+
+class Permission {
+    permissionType: string
+    entityId: string
+    entityType: string
+
+    void checkPermission()
+}
+
+class Timekeeping {
+    work: string
+    time: DateTime
+
+    void notifyStaff()
+}
+
+class Note {
+    title: string
+    content: string
+}
+
+class Applicant {
+    id: string
+    name: string
+    phone: string
+    email: string
+    address: string
+
+    void reject()
+    void makeAppointment()
+}
+
+class InterviewResult {
+    time: DateTime
+    result: boolean
+    reason: string
+
+    void sendResult()
+}
+
+class InterviewAppoinment {
+    time: DateTime
+}
+
+class Department {
+    name: string
+    description: string
+}
+
+Staff *-- Permission
+Staff o--o Timekeeping
+Timekeeping *-- Note
+Applicant *-- InterviewResult
+Applicant o-- InterviewAppoinment
+Staff o--o InterviewAppoinment
+Department o-- Staff
+
+@enduml
