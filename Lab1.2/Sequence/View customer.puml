@@ -1,0 +1,18 @@
+@startuml "View customer"
+autonumber
+actor "Customer service Staff" as Staff
+boundary "Customer Service System Interface" as CSSI
+control "Staff Controller" as SCtl
+control "Customer Controller" as CCtl 
+
+Staff --> CSSI ++: Enter customer interface
+CSSI --> SCtl ++: Examine staff's permission
+alt Staff has permission to view customer profile
+SCtl --> CSSI: Allow staff to view customer list
+CSSI --> CCtl ++: Show customer list
+CCtl --> Staff: Show customer list and notify success
+else Staff has no permission to view customer profile
+SCtl --> CSSI: Notify staff has no permission to view customer profile
+CSSI --> Staff: Notify failure
+end
+@enduml
