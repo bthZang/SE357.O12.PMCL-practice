@@ -1,0 +1,15 @@
+@startuml "Make interview appointment"
+autonumber
+actor "HR Staff" as Staff
+actor "Staff" as SStaff
+boundary "Human Resource Management Interface" as HRMI
+control "Staff Controller" as SCtl
+control "Timekeeping Controller" as TCtl
+
+Staff --> HRMI ++: Add timekeeping list
+HRMI --> TCtl ++: Add timekeeping list
+TCtl --> SCtl ++: Send Involved staffs
+SCtl --> SStaff: Notify about new timekeeping list
+SCtl --> HRMI --: Notify success
+HRMI --> Staff --: Notify success
+@enduml
