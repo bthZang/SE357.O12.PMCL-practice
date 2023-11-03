@@ -1,0 +1,18 @@
+@startuml "Make interview appointment"
+autonumber
+actor "HR Staff" as Staff
+boundary "Human Resource Management Interface" as HRMI
+control "Staff Controller" as SCtl
+
+Staff --> HRMI ++: Select staff
+HRMI --> SCtl ++: Check staff permission
+alt Staff has permission to view staff
+SCtl --> HRMI: Allow staff to view staff
+HRMI --> SCtl: Send staff name to view profile
+SCtl --> HRMI: Staff profile
+HRMI --> Staff: Notify success
+else Else
+SCtl --> HRMI --: Disallow staff to view staff
+HRMI --> Staff --: Notify failure
+end
+@enduml
