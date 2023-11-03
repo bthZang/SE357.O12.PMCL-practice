@@ -10,9 +10,10 @@ CSSI --> SCtl ++: Examine staff's permission
 alt Staff has permission to view customer profile
 SCtl --> CSSI: Allow staff to view customer list
 CSSI --> CCtl ++: Show customer list
-CCtl --> Staff: Show customer list and notify success
+CCtl --> CSSI: Show customer list
+CSSI --> Staff --: Notify success
 else Staff has no permission to view customer profile
-SCtl --> CSSI: Notify staff has no permission to view customer profile
-CSSI --> Staff: Notify failure
+SCtl --> CSSI --: Notify staff has no permission to view customer profile
+CSSI --> Staff --: Notify failure
 end
 @enduml
