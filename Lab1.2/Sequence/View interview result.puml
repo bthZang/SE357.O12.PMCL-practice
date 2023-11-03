@@ -1,0 +1,19 @@
+@startuml "Make interview appointment"
+autonumber
+actor "HR Staff" as Staff
+boundary "Recruitment Management System Interface" as RMSI
+control "Staff Controller" as SCtl
+control "Applicant Controller" as ACtl 
+
+Staff --> RMSI ++: Enter recruiment interface
+RMSI --> SCtl ++: Check staff permission
+alt Staff has permission to view interview result and applicant profile
+SCtl --> RMSI: Allow staff view interview result
+RMSI --> ACtl ++: Get applicant list and their interview result 
+ACtl --> RMSI --: Applicant result
+RMSI --> Staff: Applicant list and their result
+else Else
+SCtl --> RMSI --: Disallow staff to view interview result
+RMSI --> Staff --: Notify failure
+end
+@enduml
