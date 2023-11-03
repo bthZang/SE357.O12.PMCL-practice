@@ -1,0 +1,15 @@
+@startuml "Authenticate"
+start
+if (Staff has an account) then (yes)
+:Login;
+if (Staff forget password?) then (yes)
+:Reset password;
+:Login again
+else (no)
+:Redirect to homepage;
+endif
+else (no)
+:Request admin to create new account;
+endif
+stop
+@enduml
