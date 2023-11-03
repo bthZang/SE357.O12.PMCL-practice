@@ -1,0 +1,15 @@
+@startuml "Send mass email"
+autonumber
+actor "Staff" as Staff
+boundary "Account Management System Interface" as AMSI
+control "Email system" as ES
+control "Account Controller" as Ctl
+
+Staff --> AMSI ++: Select recipient
+AMSI --> Ctl ++: Search for recipient name
+Ctl --> AMSI: Recipient names
+AMSI --> Ctl: Send email content
+Ctl --> ES: Send email to recipient
+Ctl --> AMSI --: Send list of success email
+AMSI --> Staff --: Send list of success email   
+@enduml
