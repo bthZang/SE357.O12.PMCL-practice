@@ -1,0 +1,15 @@
+@startuml "Add staff"
+autonumber
+actor "HR Staff" as Staff
+boundary "HRM Interface" as HRMI
+control "Staff Controller" as Ctl
+Staff --> HRMI ++: Send new staff information 
+HRMI --> Ctl ++: Create new staff
+alt Staff's profile is valid
+Ctl --> HRMI: Create staff successfull
+HRMI --> Staff: Notify success
+else Staff's profile is invalid
+Ctl --> HRMI: Fail to create staff
+HRMI --> Staff: Notify failure
+end
+@enduml
