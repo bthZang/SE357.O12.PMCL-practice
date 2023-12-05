@@ -1,0 +1,35 @@
+@startuml "Edit department profile"
+|User|
+start
+
+:Initiate edit department profile request;
+:Retrieve department information;
+:Verify current details;
+if (details accurate?) then (yes)
+  :Update department profile;
+  :Modify department details;
+  if (change name?) then (yes)
+    :Change department name;
+  else (no)
+    :Keep current name;
+  endif
+  if (update contact info?) then (yes)
+    :Update contact information;
+  else (no)
+    :Keep current contact information;
+  endif
+  if (adjust settings?) then (yes)
+    :Adjust department settings;
+  else (no)
+    :Retain current settings;
+  endif
+  :Save changes;
+  :Log profile edit;
+  :Notify user of successful edit;
+else (no)
+  :Notify user of inaccurate details;
+endif
+
+|User|
+stop
+@enduml
