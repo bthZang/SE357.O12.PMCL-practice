@@ -1,0 +1,37 @@
+@startuml "Create department"
+|User|
+start
+
+:Initiate create department request;
+:Gather required information;
+
+if (information complete?) then (yes)
+  :Verify details;
+  if (details accurate?) then (yes)
+    :Allocate resources for new department;
+    :Define department structure;
+    if (employees assigned?) then (yes)
+      :Select and assign employees;
+      :Update employee records;
+    else (no)
+      stop
+    endif
+    if (permissions configured?) then (yes)
+      :Configure department-specific permissions;
+      :Setup access controls;
+    else (no)
+      stop
+    endif
+    :Create department in the system;
+    :Log department creation;
+    :Notify user of successful creation;
+  else (no)
+    stop
+  endif
+else (no)
+  stop
+endif
+
+|User|
+stop
+@enduml
