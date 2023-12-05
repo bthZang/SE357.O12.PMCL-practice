@@ -1,0 +1,42 @@
+@startuml "Change staff profile"
+|User|
+start
+
+:Initiate change staff profile request;
+
+|Operations|
+:Retrieve staff information;
+:Verify current details;
+
+if (details accurate?) then (yes)
+  :Update staff profile;
+  :Modify personal details;
+
+  if (change name?) then (yes)
+    :Change name;
+  else (no)
+    :Keep current name;
+  endif
+
+  if (update contact info?) then (yes)
+    :Update contact information;
+  else (no)
+    :Keep current contact information;
+  endif
+
+  if (adjust settings?) then (yes)
+    :Adjust personal settings;
+  else (no)
+    :Retain current settings;
+  endif
+
+  :Save changes;
+  :Log profile change;
+  :Notify user of successful profile update;
+else (no)
+  :Notify user of inaccurate details;
+endif
+
+|User|
+stop
+@enduml
