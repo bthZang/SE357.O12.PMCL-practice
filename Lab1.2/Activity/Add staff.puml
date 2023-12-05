@@ -1,0 +1,28 @@
+@startuml "Add staff"
+|User|
+start
+
+:Initiate add staff request;
+
+|System|
+:Retrieve necessary information;
+:Prompt user for staff details;
+
+|User|
+:Provide staff details;
+:Submit staff information;
+
+|System|
+:Validate staff details;
+if (details valid?) then (yes)
+  :Add staff to the system;
+  :Generate staff ID;
+  :Log staff addition;
+  :Notify user of successful addition;
+else (no)
+  :Notify user of invalid details;
+endif
+
+|User|
+stop
+@enduml
