@@ -1,0 +1,20 @@
+@startuml "View interview result"
+|User|
+start
+
+:Initiate view interview result request;
+
+|System|
+:Retrieve interview details;
+:Validate user permissions;
+
+if (permissions valid?) then (yes)
+  :Display interview result;
+  :Show applicant's performance;
+else (no)
+  :Notify user of insufficient permissions;
+endif
+
+|User|
+stop
+@enduml
