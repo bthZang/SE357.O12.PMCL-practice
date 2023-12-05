@@ -1,0 +1,20 @@
+@startuml "Contact customer"
+start
+:Retrieve customer information;
+if (Customer information found?) then (yes)
+  :Prepare contact message;
+  if (Contact message ready?) then (yes)
+    :Send message to customer;
+    if (Message sent successfully?) then (yes)
+      :Log successful contact;
+    else (no)
+      :Log failed contact;
+    endif
+  else (no)
+    :Log message not ready;
+  endif
+else (no)
+  :Log customer not found;
+endif
+stop
+@enduml
