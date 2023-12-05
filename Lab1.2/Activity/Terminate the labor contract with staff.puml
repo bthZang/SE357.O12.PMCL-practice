@@ -1,0 +1,25 @@
+@startuml "Terminate the labor contract with staff"
+|User|
+start
+
+:Initiate terminate labor contract request;
+
+|System|
+:Retrieve staff information;
+:Verify staff details;
+:Prompt user for termination reason;
+
+|User|
+:Provide termination reason;
+:Confirm termination;
+
+|System|
+:Update staff status to terminated;
+:Archive staff records;
+:Notify relevant departments;
+:Log contract termination;
+:Notify user of successful termination;
+
+|User|
+stop
+@enduml
