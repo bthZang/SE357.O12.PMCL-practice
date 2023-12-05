@@ -1,0 +1,20 @@
+@startuml "Note in timekeeping list"
+|User|
+start
+
+:Initiate note in timekeeping list request;
+
+|System|
+:Retrieve timekeeping entry details;
+:Display timekeeping entry for user;
+
+|User|
+:Add note to entry;
+:Save note;
+
+|System|
+:Update timekeeping entry with note;
+
+|User|
+stop
+@enduml
