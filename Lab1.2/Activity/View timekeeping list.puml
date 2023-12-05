@@ -1,0 +1,26 @@
+@startuml "View timekeeping list"
+|User|
+start
+
+:Initiate view timekeeping list request;
+
+|System|
+:Retrieve timekeeping data;
+:Filter and organize data;
+
+if (data available?) then (yes)
+  |User|
+  :Display timekeeping list;
+  while (more entries?) is (yes)
+    |System|
+    :Retrieve entry details;
+    :Format and present timekeeping entry;
+  endwhile
+else (no)
+  |User|
+  :Notify user of no timekeeping entries;
+endif
+
+|User|
+stop
+@enduml
