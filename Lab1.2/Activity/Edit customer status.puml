@@ -1,0 +1,22 @@
+@startuml "Edit customer status"
+|User|
+start
+
+:Initiate customer status edit request;
+- Retrieve customer information;
+if (customer data exists) then (yes)
+  :Display current status;
+  :Select new status;
+  if (status change valid) then (yes)
+    - Update customer status in database;
+    :Log status change;
+    :Notify user of successful status update;
+  else (no)
+    :Notify user of invalid status change;
+  endif
+else (no)
+  :Notify user of no data;
+endif
+
+stop
+@enduml
