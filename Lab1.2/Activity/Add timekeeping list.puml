@@ -1,0 +1,27 @@
+@startuml "Add timekeeping list"
+|User|
+start
+
+:Initiate add timekeeping entry request;
+
+|System|
+:Retrieve relevant information;
+:Prompt user for timekeeping details;
+
+|User|
+:Provide timekeeping details;
+:Submit entry;
+
+|System|
+:Validate entry details;
+if (details valid?) then (yes)
+  :Add entry to timekeeping list;
+  :Log timekeeping entry;
+  :Notify user of successful addition;
+else (no)
+  :Notify user of invalid details;
+endif
+
+|User|
+stop
+@enduml
