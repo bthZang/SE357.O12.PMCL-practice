@@ -1,0 +1,25 @@
+@startuml "View customer request"
+|User|
+start
+
+:Initiate view customer request;
+- Retrieve customer request details;
+if (request found) then (yes)
+  :Format request information;
+  if (additional data needed) then (yes)
+    :Request and retrieve additional data;
+    :Combine with existing data;
+  else (no)
+    :Use existing data;
+  endif
+  if (data validation successful) then (yes)
+    :Display formatted request details;
+  else (no)
+    :Notify user of data inconsistency;
+  endif
+else (no)
+  :Notify user of no request data;
+endif
+
+stop
+@enduml
