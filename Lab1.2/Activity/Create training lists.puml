@@ -1,0 +1,28 @@
+@startuml "Create training lists"
+|User|
+start
+
+:Initiate create training lists request;
+
+|System|
+:Retrieve necessary information;
+:Prompt user for training details;
+
+|User|
+:Provide training details;
+:Submit training information;
+
+|System|
+:Validate training details;
+if (details valid?) then (yes)
+  :Create training lists;
+  :Generate training IDs;
+  :Log training creation;
+  :Notify user of successful creation;
+else (no)
+  :Notify user of invalid details;
+endif
+
+|User|
+stop
+@enduml
