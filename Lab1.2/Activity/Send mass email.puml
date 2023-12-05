@@ -1,0 +1,20 @@
+@startuml "Send mass email"
+|User|
+start
+
+:Initiate mass email request;
+- Prepare email content;
+- Select email recipients;
+- Review and confirm;
+if (confirmed) then (yes)
+  :Send emails to selected recipients;
+  - Log email activity;
+  :Mass email sent successfully;
+else (no)
+  :Cancel mass email request;
+  - Log cancellation;
+  :Mass email canceled;
+endif
+
+stop
+@enduml
