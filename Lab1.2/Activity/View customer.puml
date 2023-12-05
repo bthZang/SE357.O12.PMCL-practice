@@ -1,0 +1,20 @@
+@startuml "View customer"
+|User|
+start
+
+:Initiate customer view request;
+- Retrieve customer information;
+if (customer data exists) then (yes)
+  :Format customer details;
+  if (preferences set) then (yes)
+    :Apply user preferences;
+  else (no)
+    :Use default display settings;
+  endif
+  :Display customer details;
+else (no)
+  :Notify user of no data;
+endif
+
+stop
+@enduml
