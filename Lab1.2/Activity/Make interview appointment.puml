@@ -1,0 +1,29 @@
+@startuml "Make interview appointment"
+|User|
+start
+
+:Initiate make interview appointment request;
+
+|System|
+:Retrieve applicant information;
+:Check interview availability;
+:Prompt user for interview details;
+
+|User|
+:Provide interview details;
+:Submit appointment request;
+
+|System|
+:Validate appointment details;
+if (details valid?) then (yes)
+  :Schedule interview appointment;
+  :Update interview status;
+  :Log appointment details;
+  :Notify user of successful appointment;
+else (no)
+  :Notify user of invalid details;
+endif
+
+|User|
+stop
+@enduml
