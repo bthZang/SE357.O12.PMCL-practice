@@ -4,10 +4,11 @@ start
 
 :Initiate change staff profile request;
 
-|Operations|
+|System|
 :Retrieve staff information;
 :Verify current details;
 
+|User|
 if (details accurate?) then (yes)
   :Update staff profile;
   :Modify personal details;
@@ -19,19 +20,23 @@ if (details accurate?) then (yes)
   endif
 
   if (update contact info?) then (yes)
+    |User|
     :Update contact information;
   else (no)
     :Keep current contact information;
   endif
 
   if (adjust settings?) then (yes)
+    |User|
     :Adjust personal settings;
   else (no)
     :Retain current settings;
   endif
 
+  |System|
   :Save changes;
   :Log profile change;
+
   :Notify user of successful profile update;
 else (no)
   :Notify user of inaccurate details;
