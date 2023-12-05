@@ -1,0 +1,24 @@
+@startuml "Send interview result to applicant"
+|User|
+start
+
+:Initiate send interview result to applicant request;
+
+|System|
+:Retrieve interview result details;
+:Verify user permissions;
+:Prompt user for additional feedback;
+
+|User|
+:Provide additional feedback;
+:Confirm sending result to applicant;
+
+|System|
+:Update interview status as communicated;
+:Send interview result to applicant;
+:Log communication details;
+:Notify user of successful communication;
+
+|User|
+stop
+@enduml
