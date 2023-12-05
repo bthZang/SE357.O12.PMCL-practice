@@ -1,15 +1,33 @@
 @startuml "Class diagram"
+
 class Staff {
     id: string
     name: string
     phone: string
     email: string
+    address: string
     role: string
+    laborContract: LaborContract
+    permissions: List<Permission>
 
+    username: string
+    password: string
+
+    void login()
     void requestReport()
     void cancelRequestReport()
     void createReport()
     void viewReport()
+    void reward()
+    void fine()
+}
+
+class LaborContract {
+    period: number
+    type: string
+    date: DateTime
+
+    void extendLaborContract()
 }
 
 class Permission {
@@ -21,8 +39,24 @@ class Permission {
 }
 
 class Timekeeping {
+    checkInTime: DateTime
+    staff: Staff
+
+    void checkIn()
+}
+
+class Work {
+    title: string
+    description: string
+
+    void assign()
+}
+
+class WorkAssignment {
     work: string
     time: DateTime
+    deadline: DateTime
+    staff: Staff
 
     void notifyStaff()
 }
@@ -38,6 +72,8 @@ class Applicant {
     phone: string
     email: string
     address: string
+    cv: File
+    portfolio: File
 
     void reject()
     void makeAppointment()
@@ -53,19 +89,70 @@ class InterviewResult {
 
 class InterviewAppoinment {
     time: DateTime
+    staff: Staff
+    applicant: Applicant
 }
 
 class Department {
     name: string
     description: string
+    staffs: List<Staff>
+
+    void exportReport()
+}
+
+class Education {
+    staff: Staff
+    startDate: DateTime
+    endDate: DateTime
+    type: String
+}
+
+class Customer {
+    name: string
+    phone: string
+    address: string
+    potentialPoint: number
+
+    void customerGratitude()
+    void complain()
+    void fine()
+}
+
+class ComplainForm {
+    customer: Customer
+    staff: Staff
+    description: string
+
+    void assignStaff(Staff staff)
+    void resolve()
+}
+
+class Report {
+    title: string
+    content: string
+    assignee: Staff
+    chart: File
+    table: File
+    deadline: DateTime
+
+    void send(Staff staff)
 }
 
 Staff *-- Permission
 Staff o--o Timekeeping
 Timekeeping *-- Note
 Applicant *-- InterviewResult
-Applicant o-- InterviewAppoinment
+Applicant --o InterviewAppoinment
 Staff o--o InterviewAppoinment
 Department o-- Staff
+WorkAssignment --* Staff
+Work *-- WorkAssignment
+LaborContract -- Staff
+Education --* Staff
+Customer *-- ComplainForm
+ComplainForm --* Staff
+Staff *-- Report
+
 
 @enduml
