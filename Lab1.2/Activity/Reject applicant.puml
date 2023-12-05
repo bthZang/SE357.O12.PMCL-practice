@@ -1,0 +1,24 @@
+@startuml "Reject applicant"
+|User|
+start
+
+:Initiate reject applicant request;
+
+|System|
+:Retrieve applicant information;
+:Verify user permissions;
+:Prompt user for rejection reason;
+
+|User|
+:Provide rejection reason;
+:Confirm rejection;
+
+|System|
+:Update applicant status to rejected;
+:Archive applicant records;
+:Notify applicant of rejection;
+:Log rejection details;
+
+|User|
+stop
+@enduml
