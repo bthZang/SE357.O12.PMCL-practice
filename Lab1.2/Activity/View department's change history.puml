@@ -1,0 +1,21 @@
+@startuml "View department's change history"
+|User|
+start
+
+:Initiate view department's change history request;
+:Retrieve department's change history;
+if (history available?) then (yes)
+  :Display change log;
+  :Query database for changes;
+  while (changes available?) is (yes)
+    :Retrieve change details;
+    :Format and present change history;
+  endwhile
+else (no)
+  :Notify user of no change history;
+endif
+:Notify user of change history;
+
+|User|
+stop
+@enduml
