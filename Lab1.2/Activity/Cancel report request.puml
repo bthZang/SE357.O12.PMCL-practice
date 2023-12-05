@@ -1,0 +1,23 @@
+@startuml "Cancel report request"
+|User|
+start
+
+:Initiate cancel report request;
+
+|System|
+:Retrieve report request details;
+:Verify user permissions;
+:Prompt user for cancellation reason;
+
+|User|
+:Provide cancellation reason;
+:Confirm cancellation;
+
+|System|
+:Update report request status to canceled;
+:Log cancellation details;
+:Notify user of successful cancellation;
+
+|User|
+stop
+@enduml
