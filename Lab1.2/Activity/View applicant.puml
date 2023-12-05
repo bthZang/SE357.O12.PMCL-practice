@@ -1,0 +1,21 @@
+@startuml "View applicant"
+|User|
+start
+
+:Initiate view applicant request;
+
+|System|
+:Retrieve applicant details;
+:Validate user permissions;
+
+if (permissions valid?) then (yes)
+  :Display applicant information;
+  :Present applicant's resume;
+  :Show interview status;
+else (no)
+  :Notify user of insufficient permissions;
+endif
+
+|User|
+stop
+@enduml
