@@ -15,7 +15,7 @@
 
 **How to use**: N/A
 
-**Additional information**: The platform's social media integration and analytics tools aim to boost brand visibility and provide insights for informed business decisions. The scope extends to the continual maintenance and updates of the platform to ensure a dynamic and evolving space for the anime community. This project's focus is on delivering a captivating and comprehensive platform that seamlessly integrates the love for anime into the online shopping experience.
+**Additional information**: N/A
 
 **Code of conducting**: N/A
 
