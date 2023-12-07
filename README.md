@@ -4,8 +4,8 @@
 
 **Contributors**:
 
-- Leader: Nguyễn Hoàng Hy - 21520946 - [Github](https://github.com/hoanghy0112)
-- Member: Bùi Thị Hoàng Giang - 21520794 - [Github](https://github.com/bthZang)
+- Leader: Bùi Thị Hoàng Giang - 21520794 - [Github](https://github.com/bthZang)
+- Member: Nguyễn Hoàng Hy - 21520946 - [Github](https://github.com/hoanghy0112)
 
 **Supervisors**:
 
