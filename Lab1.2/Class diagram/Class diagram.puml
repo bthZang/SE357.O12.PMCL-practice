@@ -1,158 +1,147 @@
-@startuml "Class diagram"
-
+@startuml
 class Staff {
-    id: string
-    name: string
-    phone: string
-    email: string
-    address: string
-    role: string
-    laborContract: LaborContract
-    permissions: List<Permission>
-
-    username: string
-    password: string
-
-    void login()
-    void requestReport()
-    void cancelRequestReport()
-    void createReport()
-    void viewReport()
-    void reward()
-    void fine()
-}
-
-class LaborContract {
-    period: number
-    type: string
-    date: DateTime
-
-    void extendLaborContract()
-}
-
-class Permission {
-    permissionType: string
-    entityId: string
-    entityType: string
-
-    void checkPermission()
+name: Char
+phone: Char
+email: Char
+address: Char
+job_position: Char
+role: Char
+image: Binary
+labor_contract_start_date: Date
+labor_contract_end_date: Date
+labor_contract_image: Binaary
+user_id: ResUser
+create_user: boolean
+department: Department
+department_role: Char
+_compute_staff_role()
+action_create_user()
+onchange()
+send_email_to_selected_employees()
 }
 
 class Timekeeping {
-    checkInTime: DateTime
-    staff: Staff
-
-    void checkIn()
-}
-
-class Work {
-    title: string
-    description: string
-
-    void assign()
-}
-
-class WorkAssignment {
-    work: string
-    time: DateTime
-    deadline: DateTime
-    staff: Staff
-
-    void notifyStaff()
-}
-
-class Note {
-    title: string
-    content: string
-}
-
-class Applicant {
-    id: string
-    name: string
-    phone: string
-    email: string
-    address: string
-    cv: File
-    portfolio: File
-
-    void reject()
-    void makeAppointment()
-}
-
-class InterviewResult {
-    time: DateTime
-    result: boolean
-    reason: string
-
-    void sendResult()
-}
-
-class InterviewAppoinment {
-    time: DateTime
-    staff: Staff
-    applicant: Applicant
+name: Char
+checkin_dat: Date
+checkout_date: Date
+staff: Staff
+_computer_name()
 }
 
 class Department {
-    name: string
-    description: string
-    staffs: List<Staff>
-
-    void exportReport()
+name: Char
+description: Char
+manager: Staff
+staffs: List<Staff>
+total_employee: Integer 
+_compute_total_staff()
 }
 
-class Education {
-    staff: Staff
-    startDate: DateTime
-    endDate: DateTime
-    type: String
+class ReportRequest {
+deadline: Date
+state: Char
+title: Char
+description: Char
+report: List<Report>
+assignee: Staff
+departmnt: Department
+user_id: Char
+accept()
+reject()
 }
 
-class Customer {
-    name: string
-    phone: string
-    address: string
-    potentialPoint: number
-
-    void customerGratitude()
-    void complain()
-    void fine()
-}
-
-class ComplainForm {
-    customer: Customer
-    staff: Staff
-    description: string
-
-    void assignStaff(Staff staff)
-    void resolve()
+class ReportFile {
+name: Char
+description: Char
+file: Binary
+reqport: Report
 }
 
 class Report {
-    title: string
-    content: string
-    assignee: Staff
-    chart: File
-    table: File
-    deadline: DateTime
-
-    void send(Staff staff)
+title: Char
+content: Char
+state: Char
+files: List<ReportFile>
+request: Char (ReportRequest)
 }
 
-Staff *-- Permission
-Staff o--o Timekeeping
-Timekeeping *-- Note
-Applicant *-- InterviewResult
-Applicant --o InterviewAppoinment
-Staff o--o InterviewAppoinment
-Department o-- Staff
-WorkAssignment --* Staff
-Work *-- WorkAssignment
-LaborContract -- Staff
-Education --* Staff
-Customer *-- ComplainForm
-ComplainForm --* Staff
-Staff *-- Report
+class InterviewResult {
+appointment: InterviewAppointment
+staff: Staff
+score: Float
+comment: Char
+_check_integer_range()
+}
 
+class InterviewAppointment {
+time: Date
+staffs: List<Staff>
+applicant: Applicant
+location: Char
+state: Char
+unlink()
+}
+
+class Applicant {
+name: Char
+phone: Char
+email: Char
+address: Char
+birth: Date
+apply_position: Char
+image: Binary
+cv: Binary
+portfolio: Binary
+state: Char
+interview: List<InterviewAppopintment>
+approve_applicant()
+reject_applicant()
+}
+
+class Contact {
+email: Char
+title: Char
+content: Char
+customer: Customer
+response List<Message>
+}
+
+class Customer {
+name: Char
+phone: Char
+email: Char
+address: Char
+potentialPoint: Integer
+}
+
+class Message {
+customer: Customer
+title: Char
+content: Char
+}
+
+class ReplyContact {
+contact: Contact
+title: Char
+content: Char
+staff: Staff
+reply_contact(customerServiceStaff: Staff)
+}
+
+
+Timekeeping -- Staff
+Staff --o Department
+Staff -- ReportRequest
+ReportRequest -- Department
+Report *-- ReportFile
+Report -- ReportRequest
+InterviewAppointment o-- Staff
+InterviewResult --o Staff
+InterviewResult --o InterviewAppointment
+InterviewAppointment --o Applicant
+Staff --o ReplyContact
+ReplyContact --o Contact
+Contact --o Customer
+Contact *-- Message
 
 @enduml
