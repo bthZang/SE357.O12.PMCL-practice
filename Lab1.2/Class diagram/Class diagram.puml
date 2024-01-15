@@ -18,6 +18,8 @@ _compute_staff_role()
 action_create_user()
 onchange()
 send_email_to_selected_employees()
+create_staff()
+send_mass_email()
 }
 
 class Timekeeping {
@@ -55,6 +57,7 @@ name: Char
 description: Char
 file: Binary
 reqport: Report
+upload()
 }
 
 class Report {
@@ -62,7 +65,8 @@ title: Char
 content: Char
 state: Char
 files: List<ReportFile>
-request: Char (ReportRequest)
+request: ReportRequest
+send()
 }
 
 class InterviewResult {
@@ -128,6 +132,26 @@ staff: Staff
 reply_contact(customerServiceStaff: Staff)
 }
 
+class Permission {
+name: Char
+group_id: Char
+model_id: Char
+staff_id: Staff
+read: boolean
+write: boolean
+update: boolean
+unlink: boolean
+check_permission()
+}
+
+class ResUser {
+email: Char
+password: Char
+staff: Staff
+sing_in()
+sign_out()
+}
+
 
 Timekeeping -- Staff
 Staff --o Department
@@ -143,5 +167,7 @@ Staff --o ReplyContact
 ReplyContact --o Contact
 Contact --o Customer
 Contact *-- Message
+Permission --o Staff
+ResUser --o Staff
 
 @enduml
